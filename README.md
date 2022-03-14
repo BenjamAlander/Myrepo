@@ -1,7 +1,6 @@
 - 👋 Hi, I’m @benzqu
 - 👀 I’m interested in programming.
 - 🌱 I’m currently learning Java and Python.
-- 💞️ I’m looking to collaborate on ...
 - 📫 How to reach me alander.benjam@hotmail.com
 
 <!---
