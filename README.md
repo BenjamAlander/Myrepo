@@ -1,4 +1,4 @@
-- 👋 Hi, I’m Benjam, @benzqu
+- 👋 Hi, I’m Benjam
 - 👀 I’m interested in programming and networking. 
 - 🌱 I’m currently learning Python, Git and Docker
 - 📫 How to reach me alander.benjam@hotmail.com
