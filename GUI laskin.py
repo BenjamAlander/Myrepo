@@ -1,4 +1,4 @@
-### GUI laskin, credit NeuralNine
+### GUI laskin, credit NeuralNine.
 ###
 import tkinter as tk
 
