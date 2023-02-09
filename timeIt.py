@@ -17,6 +17,8 @@ def timeIt(n):
     stop = time.time()
     return f'For {n} it took {stop-start} seconds'
 
+
+
 print(timeIt(100))
 print(timeIt(1000))
 print(timeIt(10_000))
