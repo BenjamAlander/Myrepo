@@ -22,7 +22,4 @@ if complexity in options:
     
 elif complexity not in options:
     print("Try again, please choose number 1 for weak, number 2 for medium or number 3 for strong.")
-   
-    
-
 
