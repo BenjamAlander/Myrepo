@@ -17,22 +17,24 @@
   
   .pomeraniankuva1 {
     display: flex;
-    font-family: Arial, Helvetica, sans-serif;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
   }
   
-  .pomeraniankuva1 .left {
-    width: 50%;
-  }
-  
-  .pomeraniankuva1 .right {
-    width: 50%;
-    padding: 0 20px;
+  .content {
+    max-width: 600px;
     text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    padding-left: 50px;
   }
   
-  .pomeraniankuva1 img {
-    padding-top: 5px;
-    max-height: 500px;
+  .gif {
+    flex: 1;
+    text-align: center;
+    padding-right: 50px;
   }
   
   body {
