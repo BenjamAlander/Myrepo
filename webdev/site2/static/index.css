@@ -1,0 +1,41 @@
+.topbar {
+    background-color: #00539CFF;
+  }
+  
+  .topbar h1 {
+    padding: 15px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 50px;
+    color: #FFFFFF;
+  }
+  
+  .topbar a {
+    padding-left: 78%;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  .pomeraniankuva1 {
+    display: flex;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  .pomeraniankuva1 .left {
+    width: 50%;
+  }
+  
+  .pomeraniankuva1 .right {
+    width: 50%;
+    padding: 0 20px;
+    text-align: center;
+  }
+  
+  .pomeraniankuva1 img {
+    padding-top: 5px;
+    max-height: 500px;
+  }
+  
+  body {
+    background-color: #EEA47FFF;
+  }
+  
