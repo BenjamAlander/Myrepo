@@ -1,0 +1,28 @@
+.header h1 {
+  margin-top: 0px;
+  display: flex;
+  justify-content: center;
+  background-color: #6495ED;
+  padding: 25px;
+  font-family: Sans sherif;
+  color: #000000;
+}
+h2 {
+  font-family: Sans sherif;
+  padding-left: 10%;
+
+}
+body {
+  margin: 0px;
+  background-color: #F8F8FF;
+}
+.wizards {
+  display: flex;
+  justify-content: center;
+}
+.wizards h2 {
+  display:flex;
+  justify-content: center;
+}
+
+  
