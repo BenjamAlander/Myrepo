@@ -5,6 +5,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../static/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <style>
       #calculator {
         margin: 20px auto;
@@ -52,8 +54,9 @@
         cursor: pointer;
       }
       button:hover {
-        background-color: #309cafb4;
-        color: rgba(255, 255, 255, 0.767);
+        background-color: #0cb2f3de;
+        color: rgba(0, 0, 0, 0.767);
+        font-weight: bold;
       }
       p {
         margin-top: 20px;
@@ -87,7 +90,7 @@
           <input type="number" id="monthly-add" min="0" required />
         </div>
         <div style="flex: 1">
-          <button onclick="calculate()">Calculate</button>
+          <button onclick="calculate(); createChart()">Calculate</button>
         </div>
       </div>
 
@@ -111,6 +114,83 @@
         const resultEl = document.getElementById("result");
         resultEl.innerHTML = `Total amount: $${total.toFixed(2)}`;
       }
+
+      function createChart() {
+        const principal = Number(document.getElementById("principal").value);
+        const interest =
+          Number(document.getElementById("interest").value) / 100;
+        const time = Number(document.getElementById("time").value);
+        const monthlyAdd = Number(document.getElementById("monthly-add").value);
+
+        const chartData = [];
+        let total = principal;
+        for (let i = 0; i < time * 12; i++) {
+          total += monthlyAdd;
+          total *= 1 + interest / 12;
+          chartData.push(total.toFixed(2));
+        }
+
+        const chartLabels = Array.from(Array(chartData.length).keys());
+
+        const chartConfig = {
+          type: "line",
+          data: {
+            labels: chartLabels,
+            datasets: [
+              {
+                label: "Compound Interest, x-axis: months, y-axis: dollars",
+                data: chartData,
+                backgroundColor: "rgba(0, 89, 255, 0.73)",
+                borderColor: "rgba(0, 89, 255, 0.73)",
+                borderWidth: 1,
+              },
+            ],
+          },
+          options: {
+            legend: {
+              display: true,
+              labels: {
+                fontColor: "black",
+                fontSize: 14,
+                fontFamily: "Arial",
+              },
+            },
+            scales: {
+              xAxes: [
+                {
+                  scaleLabel: {
+                    display: true,
+                    labelString: "Months",
+                    fontColor: "black",
+                    fontSize: 14,
+                    fontFamily: "Arial",
+                  },
+                },
+              ],
+              yAxes: [
+                {
+                  scaleLabel: {
+                    display: true,
+                    labelString: "Dollars",
+                    fontColor: "black",
+                    fontSize: 14,
+                    fontFamily: "Arial",
+                  },
+                  ticks: {
+                    beginAtZero: true,
+                  },
+                },
+              ],
+            },
+          },
+        };
+
+        const myChart = new Chart(
+          document.getElementById("myChart"),
+          chartConfig
+        );
+      }
     </script>
+    <div class="chart"><canvas id="myChart"></canvas></div>
   </body>
 </html>
