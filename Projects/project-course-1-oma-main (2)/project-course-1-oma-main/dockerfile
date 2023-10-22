@@ -1,0 +1,21 @@
+FROM jupyter/scipy-notebook:latest
+
+USER root
+
+RUN apt-get update && \
+    apt-get -y upgrade && \
+    apt-get -y install default-mysql-client && \
+    apt-get clean
+
+USER jovyan
+
+RUN pip install --upgrade pip && \
+    pip install pymysql && \
+    pip install ipython-sql && \
+    pip3 install mysqlclient && \
+    pip3 install mysql-connector-python && \
+    pip install pandas && \
+    pip install mariadb && \
+    pip install sqlalchemy
+
+WORKDIR /home/jovyan/work
