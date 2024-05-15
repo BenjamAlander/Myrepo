@@ -8,12 +8,6 @@ Welcome to the Surname-Guessing Neural Network project! This project features a 
 - **Accuracy Analysis:** The project includes evaluation metrics to analyze the accuracy of the neural network's predictions.
 - **Interactive User Input:** Users can input their own surnames to see how the neural network predicts their nationality or ethnicity.
 
-## Project Structure
-- **main.py:** Contains the main script to run the neural network, input surnames, and display predictions.
-- **data/:** Directory containing surname datasets used for training and evaluation.
-- **models/:** Directory containing trained neural network models.
-- **utils.py:** Utility functions for data preprocessing, model evaluation, and user input handling.
-- **requirements.txt:** File listing all required Python packages and their versions for easy setup.
 
 ## Additional Information
 - This project was created for educational purposes to demonstrate the application of neural networks in natural language processing tasks.
