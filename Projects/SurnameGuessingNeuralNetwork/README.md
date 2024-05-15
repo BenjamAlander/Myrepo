@@ -15,13 +15,6 @@ Welcome to the Surname-Guessing Neural Network project! This project features a 
 - **utils.py:** Utility functions for data preprocessing, model evaluation, and user input handling.
 - **requirements.txt:** File listing all required Python packages and their versions for easy setup.
 
-## Usage
-1. Ensure you have Python installed on your system.
-2. Install the required packages listed in `requirements.txt` using pip:
-3. Run the `main.py` script to execute the surname guessing neural network:
-
-4. Follow the instructions in the command line interface to input surnames and view the predictions made by the neural network.
-
 ## Additional Information
 - This project was created for educational purposes to demonstrate the application of neural networks in natural language processing tasks.
 - The dataset used for training and evaluation includes a diverse collection of surnames from various nationalities and ethnicities.
@@ -29,11 +22,5 @@ Welcome to the Surname-Guessing Neural Network project! This project features a 
 
 ## Contributing
 Contributions to this project are welcome! If you have suggestions for improvements, feature enhancements, or bug fixes, feel free to submit a pull request or open an issue on the GitHub repository.
-
-## License
-This project is licensed under the MIT License. See the LICENSE file for more details.
-
-## Contact
-For any inquiries or feedback regarding this project, please contact [projectmaintainer@example.com](mailto:projectmaintainer@example.com).
 
 Happy surname guessing! 🧠🧾
