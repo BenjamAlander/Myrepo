@@ -1,0 +1,13 @@
+requests==2.31.0
+PyYAML==6.0
+schedule==1.2.0
+Flask==2.3.2
+cryptography==41.0.3
+#flasgger==0.9.7
+flask-restx
+flasgger
+schedule
+pytest
+pytest-mock
+requests-mock
+flake8
