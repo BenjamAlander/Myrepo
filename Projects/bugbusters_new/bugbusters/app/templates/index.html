@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BugBusters Configuration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        .instructions {
+            font-size: 12px;
+            color: #555;
+            text-align: left;
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+        button.delete {
+            background: #dc3545;
+        }
+        button:hover {
+            background: #218838;
+        }
+        button.delete:hover {
+            background: #c82333;
+        }
+        .message {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>BugBusters</h1>
+        <div class="instructions">
+            <p><strong>Käyttäjäohjeet:</strong></p>
+            <p>Palvelu seuraa GitLab-repositorioiden committeja ja tallentaa niistä yhteenvetoja dokumentaatiohaaraan.</p>
+            <ul>
+                <li>Repositorion ID on GitLab-projektin nimi ilman alkuosaa (esim. "group/project").</li>
+                <li>Token on henkilökohtainen GitLab API -token, jolla on tarvittavat oikeudet.</li>
+            </ul>
+        </div>
+        <input type="text" id="repo" placeholder="GitLab Repositorion ID" required>
+        <input type="text" id="token" placeholder="GitLab Token" required>
+        <button id="submit">Tallenna</button>
+
+        <hr>
+
+        <p><strong>Poista projekti:</strong></p>
+        <input type="text" id="delete-repo" placeholder="GitLab Repositorion ID" required>
+        <button id="delete" class="delete">Poista</button>
+
+        <p class="message" id="message"></p>
+    </div>
+    <script>
+        document.getElementById("submit").addEventListener("click", () => {
+            const repo = document.getElementById("repo").value;
+            const token = document.getElementById("token").value;
+
+            if (!repo || !token) {
+                document.getElementById("message").textContent = "Täytä molemmat kentät!";
+                return;
+            }
+
+            fetch("/api/add-config", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ repo, token })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    document.getElementById("message").textContent = "Konfiguraatio tallennettu onnistuneesti!";
+                } else {
+                    document.getElementById("message").textContent = "Virhe: " + data.error;
+                }
+            })
+            .catch(err => {
+                console.error(err);
+                document.getElementById("message").textContent = "Palvelimessa tapahtui virhe.";
+            });
+        });
+
+        document.getElementById("delete").addEventListener("click", () => {
+            const repo = document.getElementById("delete-repo").value;
+
+            if (!repo) {
+                document.getElementById("message").textContent = "Anna poistettava repo!";
+                return;
+            }
+
+            fetch("/api/delete-config", {
+                method: "DELETE",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ repo })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    document.getElementById("message").textContent = "Konfiguraatio poistettu onnistuneesti!";
+                } else {
+                    document.getElementById("message").textContent = "Virhe: " + data.error;
+                }
+            })
+            .catch(err => {
+                console.error(err);
+                document.getElementById("message").textContent = "Palvelimessa tapahtui virhe.";
+            });
+        });
+    </script>
+</body>
+</html>

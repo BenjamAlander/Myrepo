@@ -1,0 +1,34 @@
+services:
+  bugbusters:
+    container_name: bugbusters
+
+    image: gitlab.dclabra.fi:4567/projektiopinnot-4-digitaaliset-palvelut/bugbusters:latest
+    environment:
+      - OLLAMASERVERNAME=ollama-server
+
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    expose:
+      - "5000"
+    ports:
+      - "5000:5000"
+    
+    labels:
+      traefik.enable: "true"
+      traefik.http.routers.bugbusters.rule: "Host(`jvprojekti2024s.dclabra.fi`) && PathPrefix(`/bugbusters`)"
+      traefik.http.routers.bugbusters.entrypoints: "web"
+      traefik.http.routers.bugbusters.middlewares: "bugbusters-strip-prefix"
+      traefik.http.middlewares.bugbusters-strip-prefix.stripprefix.prefixes: "/bugbusters"
+    networks:
+      - microservices-network
+
+networks:
+  microservices-network:
+    external: true
+
+#  https://jvprojekti2024s.dclabra.fi/bugbusters/
