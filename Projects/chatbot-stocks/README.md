@@ -1,5 +1,8 @@
 # StockChat AI 📈
 
+![Alt text for example1](./example1.png)
+![Alt text for example2](./example2.png)
+
 An intelligent stock market chat assistant powered by AI, providing real-time market insights, stock analysis, and trading information through natural language conversations.
 
 ## Features
