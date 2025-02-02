@@ -3,6 +3,7 @@
 ## Demo Video
 
 [Watch the demo video](https://www.youtube.com/watch?v=WXS5yx0vgzM&ab_channel=BenjamAlander)
+<img width="1433" alt="pyzone" src="https://github.com/user-attachments/assets/be17c694-fd35-418e-a8f1-fb43c8f98a76" />
 
 A learning application that integrates OpenAI and Supabase for enhanced programming education.
 
