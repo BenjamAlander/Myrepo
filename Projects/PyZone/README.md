@@ -1,7 +1,8 @@
 # PyZone
 
+## Demo Video
 
-<a href="demo.mov">Watch the demo video</a>
+[Watch the demo video](https://www.youtube.com/watch?v=WXS5yx0vgzM&ab_channel=BenjamAlander)
 
 A learning application that integrates OpenAI and Supabase for enhanced programming education.
 
