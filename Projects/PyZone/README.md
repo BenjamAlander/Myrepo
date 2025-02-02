@@ -1,5 +1,8 @@
 # PyZone
 
+
+<a href="assets/videos/demo.mov">Watch the demo video</a>
+
 A learning application that integrates OpenAI and Supabase for enhanced programming education.
 
 ## Prerequisites
